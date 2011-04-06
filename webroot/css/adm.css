@@ -1,0 +1,452 @@
+body{
+    margin: 0px 0px 0px 0px;
+    font-family: arial;
+    font-size: 13px;
+}
+
+h3{
+    font-size: 22px;
+    border-bottom: 1px solid #4A4A4A;
+    padding: 5px;
+}
+
+table {font-size: 13px; font-family: arial;}
+
+#menu_superior {
+    background: url("/webroot/img/bk_menu.png");
+    height: 105px;
+}
+
+#text_administrative{
+    color:white;
+    font-size:30px;
+    padding:12px;
+    font-weight:bold;
+}
+
+#footer{
+    width: 100%;
+    height: 30px;
+    background-color: #CCCCCC;
+}
+
+#conteudo {
+    width: 100%;
+    min-width: 1250px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+
+#options_fast{
+    width: 520px;
+    min-height: 280px;
+    margin-top: 5px;
+    float: left;
+}
+
+#notice_fast{
+   width: 580px;
+   float: right;
+   margin-bottom: 3px;
+   margin-right: 10px;
+}
+
+.menu_adm {
+    width: 510px;
+    list-style: none;
+}
+
+.menu_adm_rapido {
+    min-width: 650px;
+    background-color: #F7F7F7;
+    margin-top: 20px;
+    position: relative;
+}
+.menu_adm_rapido #left{
+    background: url("/webroot/img/icons/j_crn_tl_dark.png") no-repeat scroll 0 0 transparent;
+    width: 10px;
+    height: 10px;
+    position: absolute; 
+}
+
+.menu_adm_rapido #left_bottom{
+    background: url("/webroot/img/icons/j_crn_bl_dark.png") no-repeat scroll 0 0 transparent;
+    width: 6px;
+    height: 10px;
+    clear: left;
+    overflow: hidden;
+}
+
+.menu_adm_rapido #right{
+    background: url("/webroot/img/icons/j_crn_tr_dark.png") no-repeat scroll 0 0 transparent;
+    width: 5px;
+    height: 10px;
+    float: right;
+}
+
+.menu_adm_rapido #top, .menu_adm_rapido #bottom{
+    background: url("/webroot/img/icons/j_border.png") repeat-x scroll 0 0 transparent;
+    width: 100%;
+    height: 10px;
+    position: absolute;
+}
+
+.menu_adm_rapido #center {
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+    min-height: 78px;
+
+}
+
+.menu_adm_rapido ul {
+    width: 600px;
+    list-style: none;
+    height: 65px;
+}
+
+.menu_adm_rapido #texto_controller{
+    width: 150px;
+    float: left;
+    display: table;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.menu_adm_rapido #texto_controller span {
+    border: none;
+    font-size: 22px;
+    vertical-align: middle;
+    color: #CCCCCC;
+    height: 100px;
+    background: transparent;
+}
+
+.menu_adm_rapido #texto_controller strong {
+    font-size: 11px;
+    color: black;
+    font-weight: bold;
+}
+
+.menu_adm_rapido #texto_controller:hover{
+   border-color: white;
+}
+
+.menu_adm_rapido img{
+    width: 35px;
+    border: none;
+}
+
+.menu_adm_rapido li{
+    width: 120px;
+    height: 59px;
+    float: left;
+    text-align: center;
+    padding: 7px;
+    margin: 3px 3px 3px 3px;
+
+}
+
+.menu_adm_rapido li:hover{
+    border: 1px solid #DCDCDC;
+    padding: 6px;
+}
+
+.menu_adm_rapido li span{
+    text-decoration: none;
+    display: table;
+    margin: 0 auto;
+}
+
+.menu_adm li {
+    width: 120px;
+    height: 85px;
+    float: left;
+    text-align: center;
+    border: 1px solid #CCCCCC;
+    padding: 7px;
+    margin: 3px 3px 3px 3px;
+}
+
+.menu_adm li a, .menu_adm_rapido li a{
+    color: black;
+    text-decoration: none;
+    border: none;
+}
+
+.menu_adm li img{
+    border: none;
+    width: 48px;
+    height: 48px;
+    position: static;
+}
+
+.menu_adm li span {
+    display: block;
+    text-align: center;
+}
+
+#icon-32-new{
+    background: url('/webroot/img/icons/icon-32-new.png');
+    width: 32px;
+    height: 32px;
+    display: block;
+}
+
+#icon-32-archive{
+    background: url('/webroot/img/icons/icon-32-archive.png');
+    width: 32px;
+    height: 32px;
+    display: block;
+}
+
+.formulario{
+    min-width: 1010px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.formulario #box1{
+    width:500px;
+    float: left;
+}
+
+.formulario #box1 input, .formulario #box1 select {
+    padding: 5px;
+}
+
+.formulario #box2{
+    float: left;
+    margin-left: 5px;
+    min-width: 650px;
+}
+
+.formulario .button_form{
+    border: none;
+    background-color: #0099CC;
+    color:white;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+#result{
+    width: 100%;
+    min-width: 800px;
+    font-size: 12px;
+    margin: 0 auto;
+    clear: both;
+}
+
+#result th {
+    background-color: #336699;
+    color: white;
+    font-size: 12px;
+    padding: 5px;
+}
+
+#result img {
+    max-width: 60px;
+    padding-top: 10px;
+    
+}
+
+#result tr{
+    height: 25px;
+}
+
+#result tr:hover{
+    background-color: #CCCCCC;
+    cursor: pointer;
+}
+
+
+.status_ativo{
+   margin: 0 auto;
+   background-image: url("/webroot/img/adm/status_display.png");
+   width: 30px;
+   height: 30px;
+}
+
+.status_desativado{
+   margin: 0 auto;
+   background-image: url("/webroot/img/adm/status_display.png");
+   background-position: -95px;
+   width: 30px;
+   height: 30px;
+}
+
+.action_delete{
+   margin: 0 auto;
+   float: left;
+   background-image: url("/webroot/img/adm/status_display.png");
+   background-position: 30px;
+   width: 30px;
+   height: 30px;
+}
+
+.action_edit{
+   margin: 0 auto;
+   float: left;
+   margin-left: 20px;
+   background-image: url("/webroot/img/icons/icon-32-edit.png");
+   background-position: 22px 1%;
+   width: 23px;
+   height: 22px;
+   margin-top: 5px;
+}
+
+#msg_error{
+    color: red;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#error_message{
+    width: 400px;
+    text-align: center;
+    background-color: red;
+    color: white;
+    font-size: 14px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+#confirm_message{
+    width: 400px;
+    text-align: center;
+    background-color: green;
+    color: white;
+    font-size: 14px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+#bread_crumb_count{
+    margin-left: 48px;
+    min-width: 400px;
+    padding: 7px;
+}
+
+#paginacao {
+    clear: both;
+    margin-top: 15px;
+    position: relative;
+    width: 100%;
+    height: 27px;
+    border-bottom: 1px solid #CCCCCC;
+    border-top: 1px solid #CCCCCC;
+}
+
+#paginacao a {
+    text-decoration: none;
+    color:gray;
+}
+
+#paginacao ul {
+    list-style: none;
+    margin-top: 4px;
+}
+
+#paginacao ul li {
+    float: left;
+    margin-left: 4px;
+}
+
+#paginacao ul #previous {
+    width: 50px;
+    height: 19px;
+}
+#paginacao ul #next {
+    width: 50px;
+    height: 19px;
+    margin-left: 10px;
+}
+
+
+.image_list{
+    width: 100%;
+   
+}
+
+.image_list .title{
+    font-size: 16px;
+    font-weight: bold;
+    color: #0099CC;
+}
+
+.image_list .miniature_image{
+    width: 150px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    float: left;
+    max-width: 200px;
+}
+
+.image_list .miniature_image img{
+ max-width: 100px;
+ max-height: 120px;
+ margin: 0 auto;
+
+}
+.image_list .image_block {
+    clear: both;
+}
+
+.image_list .descricao {
+    
+}
+.image_list .info {
+    height: 60px;
+}
+
+#zom_img{
+    min-width: 230px;
+    max-height: 230px;
+    float: right;
+}
+
+#marcas {
+    width: 100%;
+}
+
+#menu_ofertas {
+    display: table-caption;
+}
+
+#menu_ofertas span {
+    border-bottom: 1px solid white;
+    display: block;
+    position: relative;
+    width: 125px;
+}
+
+#menu_ofertas span p{
+    margin-left: 5px;
+    cursor: pointer;
+    display: block;
+}
+
+#menu_ofertas span:hover{
+    border-bottom: 1px solid #CCCCCC;
+    position: relative;
+}
+
+.box_oferta{
+    background-color: #F7F7F7;
+    padding: 10px;
+}
+
+.box_oferta input,select {
+    padding: 5px;
+}
+
+.submit_form{
+    margin-top: 10px
+}
+
+#cadastro td span {
+    font-size: 10px;
+    font-weight: bold;
+    color: red;
+}

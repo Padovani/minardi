@@ -1,0 +1,142 @@
+/* for pull-down menu to work in IE6*/
+behavior:url("/webroot/css/adm/csshover2.htc");
+
+}
+
+/* pull-down mainmenu css */
+.mainmenu{
+	float: left;
+	width: 100%;
+	padding: 0;
+}
+.mainmenu ul {
+	float: left;
+	width: 100%;
+	list-style: none;
+	line-height: 1;
+	background: #CCCCCC;
+	padding: 0;
+        font-size: 15px;
+	margin: 0 0 1em 0;
+        margin-top: 10px;
+        z-index: 10;
+}
+
+.mainmenu a, .mainmenu a:visited {
+	display: block;
+font-family:Arial, Helvetica, sans-serif;font-size:0.8em;font-weight:bold;font-style:normal;text-decoration:underline;
+	color: white;
+	text-decoration: none;
+	padding: 1em 1em;
+}
+.mainmenu ul ul a{
+	width:100%;
+	height:100%;
+}
+.mainmenu ul a{
+	width:1%;
+}
+
+
+.mainmenu li  {
+	float: left;
+	margin:0;
+	padding:0;
+}
+
+.mainmenu ul li {float:left; position:relative;  }
+.mainmenu ul li a {white-space:nowrap;}
+
+.mainmenu li ul {
+	position: absolute;
+	left: -999em;
+	height: auto;
+	width:15em;
+
+	background: #CCCCCC;
+	font-weight: normal;
+	border-width: 1px;
+	margin: 0;
+}
+
+.mainmenu li li {
+	width:15em ;
+}
+
+.mainmenu li li a{
+	width:13em ;
+}
+
+.mainmenu li ul  {
+	margin: 0;
+}
+.mainmenu li ul ul {
+	margin: -2.8em 0 0 13.5em;
+}
+.ul_ch,
+.mainmenu li:hover ul ul,
+.mainmenu li li:hover ul ul,
+.mainmenu li li li:hover ul ul,
+.mainmenu li li li li:hover ul ul,
+.mainmenu li li li li li:hover ul ul
+{
+	left: -999em;
+}
+.mainmenu li:hover ul,
+.mainmenu li li:hover ul,
+.mainmenu li li li:hover ul,
+.mainmenu li li li li:hover ul,
+.mainmenu li li li li li:hover ul
+{
+	left: auto;
+}
+.mainmenu li:hover>ul.ul_ch
+{
+	left: auto;
+}
+
+.mainmenu li:hover{
+	background: #444444;
+}
+
+.mainmenu li:hover a,.mainmenu li:hover a:visited,.mainmenu li:hover a:hover,.mainmenu li a:hover{
+	color:#FFFF00;
+}
+.mainmenu li:hover li a, .mainmenu li li:hover li a,
+.mainmenu li li li:hover li a, .mainmenu li li li li:hover li a,
+.mainmenu li:hover li a:visited, .mainmenu li li:hover li a:visited,
+.mainmenu li li li:hover li a:visited, .mainmenu li li li li:hover li a:visited
+{
+	color:#FFFF00;
+}
+.mainmenu li li:hover, .mainmenu li li li:hover,
+.mainmenu li li li li:hover , .mainmenu li li li li li:hover , .mainmenu li li li li li li:hover
+{
+	background: #444444;
+	z-index:9999;
+}
+.mainmenu li li:hover a,.mainmenu li li li:hover a,
+.mainmenu li li li li:hover a, .mainmenu li li li li li:hover a
+{
+	color: #FFFF00;
+}
+
+.mainmenu ul ul a, .mainmenu ul ul a:visited,
+.mainmenu li li a, .mainmenu li li a:visited
+{
+	color: #FFFF00;
+}
+.mainmenu ul ul a:hover,
+.mainmenu li:hover li:hover a,.mainmenu li:hover li:hover a:visited ,
+.mainmenu li:hover li:hover li:hover a,.mainmenu li:hover li:hover li:hover a:visited,
+.mainmenu li:hover li:hover li:hover li:hover a,.mainmenu li:hover li:hover li:hover li:hover a:visited ,
+.mainmenu li:hover li:hover li:hover li:hover li:hover a,.mainmenu li:hover li:hover li:hover li:hover li:hover a:visited,
+.mainmenu li:hover li:hover li:hover li:hover li:hover li:hover a,.mainmenu li:hover li:hover li:hover li:hover li:hover li:hover a:visited{
+	color: #FFFF00;
+}
+.mainmenu li:hover li:hover li a,.mainmenu li:hover li:hover li a:visited ,
+.mainmenu li:hover li:hover li:hover li a,.mainmenu li:hover li:hover li:hover li a:visited,
+.mainmenu li:hover li:hover li:hover li:hover li a,.mainmenu li:hover li:hover li:hover li:hover li a:visited,
+.mainmenu li:hover li:hover li:hover li:hover li:hover li a,.mainmenu li:hover li:hover li:hover li:hover li:hover li a:visited{
+	color: #FFFF00;
+}
