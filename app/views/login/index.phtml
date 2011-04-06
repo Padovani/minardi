@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+<head>
+    <title>Log into Magento Admin Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" ></meta>
+    <script type="text/javascript" src="/webroot/js/jquery.js"></script>
+    <script type="text/javascript" src="/webroot/js/jquery-ui.js"></script>
+</head>
+
+<body id="page-login">
+    <style type="text/css">
+        /* LOGIN
+        *******************************************************************************/
+        h2 {background-color: #E48131; width:310px; color: white; padding: 3px;}
+        #page-login                             { background:#f8f8f8; text-align:center; }
+        .login-container                        { width:581px; margin:170px auto; padding-left:32px; }
+        .login-form                             { padding:27px 57px 35px 57px;  text-align:left; }
+        .login-form .input-left                 { float:left; }
+        .login-form .input-right                { float:right; }
+        .login-form .input-box input.input-text { width:224px; }
+        .login-form h2                          { font-size:1.7em; font-weight:normal; }
+        .login-form label                       { font-weight:bold; }
+        .login-form .form-buttons               { margin:12px 0 0 0; clear:both; text-align:right; }
+        .login-box .bottom                      { width:581px; height:5px; overflow:hidden; }
+        .login-container .legal                 { margin:0; background-color:#E48131; color: white;  padding:8px 8px 5px 8px; font-size:.95em; }
+        .login-form .validation-advice          { margin:3px 0 0 0; }
+        .login-form .forgot-link                { margin:0 17px 0 0; text-align:right; }
+        #erro {width: 350px; height: 30px; color: red; font-weight: bold}
+        #loading{width: 200px; height: 50px;}
+
+    </style>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+            jQuery(".form-button").click(function(){
+               var params = $('form').serialize();
+
+                $.ajax({
+                   type: 'post', //Tipo do envio das informações GET ou POST
+                   url: '/login/entrar', //url para onde será enviada as informações digitadas
+                   data: params, /*parâmetros que serão carregados para a url selecionada (via POST). o form serialize passa de uma só vez todas as informações que estão dentro do formulário. Facilita, mas pode atrapalhar quando não for aplicado adequadamente a sua   aplicação*/
+
+                   beforeSend: function(){
+                      //Ação que será executada após o envio, no caso, chamei um gif loading para dar a impressão de garregamento na página
+                      $('#loading').fadeIn();
+                   },
+                   //function(data) vide item 4 em $.get $.post
+                   success: function(data){
+                       $('#loading').css('visibility','visible');
+                       $('#erro').html('');
+                       $('#erro').append(data).css('visibility','visible');
+                       if(data == ''){
+                           location.href = '/administracao';
+                       }else{
+                           $('#loading').css('visibility','hidden');
+                       }
+                   },
+
+                   // Se acontecer algum erro é executada essa função
+                   error: function(erro){
+                        $('#loading').css('visibility','hidden');
+                        $('#erroCadastro').fadeIn();
+                   }
+                });
+
+
+
+            });
+        });
+    </script>
+
+    <div class="login-container">
+        <div class="login-box">
+            <form method="post" action="#" id="loginForm">
+                <div class="login-form">
+                    <h2>Login para acesso ao Painel</h2>
+
+                    <div id="messages">
+                                            </div>
+                    <div class="input-box input-left"><label for="username">Usuario:</label><br/>
+                        <input type="text" id="username" name="usuario" value="" class="required-entry input-text" /></div>
+                    <div class="input-box input-right"><label for="login">Password:</label><br />
+                        <input type="password" id="login" name="senha" class="required-entry input-text" value="" /></div>
+                    <div class="clear"></div>
+                    <div class="form-buttons">
+                        <input type="submit" class="form-button" value="Login" title="Login" onclick="return false;" />
+                        <div id="loading" style="visibility:hidden">
+                            <img src="/webroot/img/icons/loading.gif" alt="validando" title="validando"/>
+                        </div>
+                    </div>
+                    <div id="erro" style="visibility: hidden">
+                    </div>
+                    <div><?php if(isset($_GET['erro']) && $_GET['erro'] == '20') echo "Usuário cadastrado mais sem nenhum acesso." ?></div>
+                </div>
+                <p class="legal">Unimar - José Henrique Honjoya | José Renato Beltrani </p>
+            </form>
+            <div class="bottom"><span>Validando...</span></div>
+        </div>
+    </div>
+</body>
+</html>
+

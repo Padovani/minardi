@@ -1,0 +1,73 @@
+<script>
+    function show_image(image){
+        if(image){
+            if(image == 'no_image.png'){
+                url = '/webroot/img/icons/no_image.png';
+            }else{
+                url = '/webroot/img/loja_imagem/'+image;
+            }
+            jQuery("#image_selected img").remove();
+            jQuery("#confirm_message").remove();
+            jQuery("#image_selected fieldset").remove();
+            jQuery("#image_selected").append('<img id="zom_img" src="'+url+'"/>');
+        }
+    }
+
+    jQuery(document).ready(function(){
+        jQuery(".action").click(function(){
+            var id = jQuery(this).attr("id");
+            jQuery("#image_selected").load('/loja_imagem/edit/&id='+id);
+        })
+    });
+</script>
+
+<div class="formulario">
+    <div class="menu_adm_rapido">
+       <div id="top">
+           <div id="left"></div>
+           <div id="right"></div>
+       </div>
+       <div id="center">
+           <div id="texto_controller"><strong>Opçoes rápidas</strong><br/><span>Imagem</span></div>
+            <ul>
+                <li><a href="/loja_imagem/index" title="Listar Imagem"><span id="icon-32-archive"></span> Listar Imagem </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Lista de Imagens</h3>
+    <div id="box1">
+        <div class="image_list">
+            <?php foreach($imagens as $k => $image): ?>
+            <div class="image_block">
+                <span class="title"><?php echo $image['local'] ?></span>
+                <div id="<?php echo $image['id'] ?>" class="miniature_image">
+                    <?php   
+                    if(empty($image['imagem'])):
+                        echo "<img src='/webroot/img/icons/no_image.png' onclick='show_image(\"no_image.png\");' title = 'Clique para exibir'/>";
+                    else:
+                        echo "<img src='/webroot/img/loja_imagem/".$image['id'].'.'.$image['imagem']."' onclick='show_image(\"".$image['id'].".".$image['imagem']."\")'/>";
+                    endif;
+                    ?>
+                </div>
+
+                <div class="descricao">
+                    <p><?php echo $image['descricao']; ?></p>
+                    <span><strong>Altura:</strong> <?php echo $image['altura']?></span>
+                    <span><strong>Largura:</strong><?php echo $image['largura']?></span>
+                </div>
+
+                <div class="info">
+                    <div id="<?php echo $image['id'] ?>" class="action_edit action"></div>
+                    <a href ="/loja_imagem/delete&id=<?php echo $image['id']; ?>"><div id="<?php echo $image['id'] ?>" class="action_delete action"></div></a>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+
+    <div id="box2">
+        <?php echo $this->flashMessage ?>
+        <div id="image_selected"></div>
+    </div>
+</div>

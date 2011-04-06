@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=8" />
+        <link href="/webroot/css/adm.css" rel="stylesheet" type="text/css" />
+        <link href="/webroot/css/jquery/jquery.css" rel="stylesheet" type="text/css" />
+        <link href="/webroot/css/adm/menu.css"  rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="/webroot/js/jquery.js"></script>
+        <script type="text/javascript" src="/webroot/js/jquery-ui.js"></script>
+        <script type="text/javascript" src="/webroot/js/adm.js"></script>
+        <title>Adimistrativo</title>
+    </head>
+    <body>
+        <div id="menu_superior">
+            <div id="text_administrative">
+               Área Administrativa
+            </div>
+
+           <div class="mainmenu">
+           
+                <ul>
+                      <li class="li_nc"><a href="/administracao" target="_self" >Home</a></li>
+
+                      <?php if($_SESSION['login']['loja_grupo_id'] == 1): ?>
+                      <li class="li_hc"><a href="/categorias" target="_self" >Categorias</a>
+                      <ul class="ul_ch">
+                      <li class="li_hc"><a href="/categorias/" target="_self" >Listar</a>
+                      <li class="li_hc"><a href="/categorias/add" target="_self" >Cadastrar</a>
+                      </li>
+                      </ul>
+                      </li>
+                      <?php endif; ?>
+                      <!--
+                      <li class="li_hc"><a href="/usuarios/" target="_self" >Usuários</a>
+                            <ul class="ul_ch">
+                                <li class="li_nc"><a href="#" target="_self" >Service 1</a></li>
+                            </ul>
+                      </li>
+                      -->
+                        <?php if($_SESSION['login']['loja_grupo_id'] == 1 || $_SESSION['login']['loja_grupo_id'] == 2): ?>
+                       <li class="li_hc"><a href="#" target="_self" >Ofertas</a><ul class="ul_ch">
+                         <li class="li_nc"><a href="/loja_ofertas/index" target="_self" >Listar</a></li>
+                         <li class="li_nc"><a href="/loja_ofertas/add" target="_self" >Cadastrar</a></li>
+                      </ul>
+                      </li>
+                      <?php endif; ?>
+
+                       <?php if($_SESSION['login']['loja_grupo_id'] == 1 || $_SESSION['login']['loja_grupo_id'] == 2): ?>
+                      <li class="li_hc"><a href="#" target="_self" >Marcas</a><ul class="ul_ch">
+                         <li class="li_nc"><a href="/marcas/index" target="_self" >Listar</a></li>
+                         <li class="li_nc"><a href="/marcas/add" target="_self" >Cadastrar</a></li>
+                      </ul>
+                      </li>
+                      <?php endif; ?>
+
+                      <?php if($_SESSION['login']['loja_grupo_id'] == 1): ?>
+                      <li class="li_hc"><a href="#" target="_self" >Configurações</a><ul class="ul_ch">
+                         <li class="li_nc"><a href="/loja_textos/index" target="_self" >Textos para a Loja</a></li>
+                         <li class="li_nc"><a href="/loja_imagem/index" target="_self" >Imagens para a Loja</a></li>
+                         <li class="li_nc"><a href="/usuarios" target="_self" >Usuários</a></li>
+                      </ul>
+                      </li>
+                     <?php endif; ?>
+                       <li class="li_hc"><a href="/login/logout" target="_self" >Logout</a><ul class="ul_ch"></ul></li>
+                </ul>
+
+                  
+             
+            </div>
+        </div>
+    
+        <div id="conteudo">
+        <?php  require_once($require_for_layout);?>
+        </div>
+
+<!--        <div id="footer">
+        </div>
+-->
+    </body>
+</html>

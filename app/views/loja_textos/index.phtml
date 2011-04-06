@@ -1,0 +1,53 @@
+<div class="formulario">
+   <div class="menu_adm_rapido">
+       <div id="top">
+           <div id="left"></div>
+           <div id="right"></div>
+       </div>
+       <div id="center">
+           <div id="texto_controller"><strong>Opçoes rápidas</strong><br/><span>Textos</span></div>
+            <ul>
+                <li><a href="/loja_textos/index" title="Listar Textos"><span id="icon-32-archive"></span> Listar Ofertas </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Lista de Textos</h3>
+    <?php echo $this->flashMessage ?>
+
+    <table id="result" border="0px" cellspacing="0px"  style="width: 100%">
+        <tbody>
+            <th width="30px;">ID</th>
+            <th width="400px;">Local</th>
+            <th>Texto</th>
+            <th width="65px;">Ativo</th>
+            <?php
+                if(isset($textos['total_found'])){
+                    $quantidade = $textos['total_found'];
+                    unset($textos['total_found']);
+                }
+            ?>
+            <th width="90px">Açoes</th>
+            <?php foreach($textos as $texto):?>
+            <tr>
+                <td><?php echo $texto['id'] ?></td>
+                <td><?php echo $texto['local'] ?></td>
+                <td><?php echo $texto['texto'] ?></td>
+                <td><?php if($texto['ativo'] == 1) $class = 'status_ativo'; else $class = 'status_desativado' ?>
+                    <a href="<?php echo "/loja_textos/ativar&id=".$texto['id'].'&status='.$class; ?>" onclick="return confirmAction('Deseja modificar o status deste Texto?')">
+                    <div id="status" class="<?php echo $class ?>"></div>
+                    </a>
+                </td>
+                <td>
+                    <a title="Editar" href="<?php echo '/loja_textos/edit&id='.$texto['id'] ?>"><div class="action_edit"></div></a>
+                    <a href="<?php echo "/loja_textos/delete&id=".$texto['id']; ?>" onclick="return confirmAction('Deseja excluir este Texto?');">
+                    <div id="status" class="action_delete"></div>
+                    </a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <?php echo $this->element('paginacao',array('quantidade'=>$quantidade,'limit'=>$limit,'url'=>'/usuarios/index'));  ?>
+</div>
+

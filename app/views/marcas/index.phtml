@@ -1,0 +1,42 @@
+<div class="formulario">
+    <div class="menu_adm_rapido">
+       <div id="top">
+           <div id="left"></div>
+           <div id="right"></div>
+       </div>
+       <div id="center">
+           <div id="texto_controller"><strong>Opçoes rápidas</strong><br/><span>Marcas</span></div>
+            <ul>
+                <li><a href="/marcas/add" title="Listar Imagem"><span id="icon-32-new"></span> Cadastrar Marcas </a></li>
+                <li><a href="/marcas/index" title="Listar Imagem"><span id="icon-32-archive"></span> Listar Marcas </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Lista de Marcas</h3>
+    <?php $ImagemHelper = new ImagemHelper(); ?>
+        <?php echo $this->flashMessage; ?>
+        <table  id="result" border="0px" cellspacing="0px">
+        <th>Imagem</th>
+        <th width="40%">Nome</th>
+        <th width="40%">Site</th>
+        <th width="70px">Opções</th>
+        <?php
+            $quantidade = $marcas['total_found'];
+            unset($marcas['total_found']);
+            foreach($marcas as $k=>$marca):
+        ?>
+            <tr>
+                <td><?php echo $ImagemHelper->imprimeImagem('/webroot/img/loja_marcas/'.$marca['id'].'.'.$marca['imagem'],$marca['nome'],$marca['nome']); ?></td>
+                <td><?php echo $marca['nome']; ?></td>
+                <td><?php echo $marca['site']; ?></td>
+                <td>
+                    <a title="Editar" href="<?php echo '/marcas/edit&id='.$marca['id'] ?>"><div class="action_edit"  onclick="return confirmAction('Deseja modificar status desta marca?');"></div></a>
+                    <a title="Deletar" href="<?php echo '/marcas/delete&id='.$marca['id'] ?>"><div class="action_delete" onclick="return confirmAction('Deseja excluir esta marca?');"></div></a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </table>
+    
+    <?php echo $this->element('paginacao',array('quantidade'=>$quantidade,'limit'=>$limit,'url'=>'/usuarios/index'));  ?>
+</div>

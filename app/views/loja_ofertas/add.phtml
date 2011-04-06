@@ -1,0 +1,161 @@
+<script type="text/javascript" src="/webroot/js/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="/webroot/js/maskMoney.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery("#money, #money_desconto").maskMoney({symbol:"R$", decimal:",", thousands:"."});
+    CKEDITOR.replace( 'ckeditor',
+        {
+            customConfig : '/webroot/js/ckeditor/config.js',
+            uiColor : '#D3D3D3',
+            width: '790'
+        });
+});
+
+function validacampo(){
+    count = 0;
+    jQuery('.obrigatorio').each(function(){
+       if(!jQuery(this).val()){
+           count++;
+           jQuery(this).addClass('erro_campo');
+            jQuery(".form").css("display","none",'color','white');
+           jQuery("#geral_form").show();
+       }
+    });
+    if(count == 0){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+</script>
+<script>
+       jQuery(document).ready(function(){
+           jQuery("#menu_ofertas span").click(function(){
+               var id = jQuery(this).attr("id");
+               jQuery(".form").css("display","none");
+               jQuery("#"+id+"_form").show("fast");
+           })
+       })
+</script>
+
+<style>
+.erro_campo{
+    background-color: red;
+    color: white;
+}
+</style>
+
+<div class="formulario">
+    <div class="menu_adm_rapido">
+       <div id="top">
+           <div id="left"></div>
+           <div id="right"></div>
+       </div>
+       <div id="center">
+           <div id="texto_controller"><strong>Opçoes rápidas</strong><br/><span>Ofertas</span></div>
+            <ul>
+                <li><a href="/loja_ofertas/add" title="Cadastrar Ofertas"><span id="icon-32-new"></span> Cadastrar Ofertas </a></li>
+                <li><a href="/loja_ofertas/index" title="Listar Ofertas"><span id="icon-32-archive"></span> Listar Ofertas </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Cadastre uma novo produto:</h3>
+    <div id="box1" style="width: 200px;">
+        <h4 style="font-size: 14px;">Cadastre uma oferta:</h4>
+        <div id="menu_ofertas">
+            <span id="geral"><p><img src="/webroot/img/icons/geral.png" title="Informações Geral" alt="Geral" />Geral</p></span>
+            <span id="precos"><p><img src="/webroot/img/icons/icon_preco.png" title="Preço e Parcelamento" alt="Preço" />Preços</p></span>
+            <span id="tags"><p><img src="/webroot/img/icons/icon_tags.png" title="Tags para indexação" alt="Tags"/>Metas Tags</p></span>
+            <span id="imagem"><p><img src="/webroot/img/icons/icon_photo.png" title="Iamgens para o produto" alt="Imagens" />Imagens</p></span>
+        </div>
+    </div>
+    <div id="box2" class="box_oferta" style="width: 800px;">
+        <form name="loja_oferta" action="/loja_ofertas/add" method="post" enctype="multipart/form-data" id="cadastro" onsubmit="return validacampo();">
+        <div id="geral_form" class="form" style="">
+            <?php echo $this->flashMessage ?>
+            <table>
+                <tbody>
+                    <tr><td>Ativo:</td></tr>
+                    <tr>
+                        <td>
+                            <select name="ativo">
+                                <option value="1">Ativo</option>
+                                <option value="0">Desativado</option>
+                            </select>
+                        </td>
+                    </tr>
+                     <tr><td>Categoria:</td></tr>
+                    <tr>
+                        <td>
+                            <select name="loja_categoria_id">
+                            <?php foreach($categorias as $k=>$categoria): ?>
+                                <option value="<?php echo $k?>"><?php echo $categoria; ?></option>
+                            <?php endforeach; ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr><td>Marcas:</td></tr>
+                    <tr>
+                        <td>
+                            <select name="loja_marca_id">
+                            <?php foreach($marcas as $k=>$marca): ?>
+                                <option value="<?php echo $marca['id']?>"><?php echo $marca['nome']; ?></option>
+                            <?php endforeach; ?>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr><td>Titulo:</td></tr>
+                    <tr><td><input name="titulo" size="100"  class="obrigatorio"/></td></tr>
+                    <tr><td>Descrição Curta :<span> (máximo 100 letras)</span></td></tr>
+                    <tr><td><input name="descricao" size="100"  class="obrigatorio"/></td></tr>
+                    <tr><td>Descricão Longa:</td></tr>
+                    <tr><td><textarea id="ckeditor" name="descricao_longa" rows="5" cols="75"></textarea></td></tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div id="precos_form" class="form" style="display: none">
+            <table>
+                <tbody>
+                    <tr><td>Quantidade:<span>(estoque)</span></td></tr>
+                    <tr><td><input id="quantidade" name="quantidade" type="text" size="5"/></td></tr>
+                    <tr><td>Preço à vista:<span> (Preço em R$)</span></td></tr>
+                    <tr><td><input id="money" name="preco" type="text" size="15"/></td></tr>
+                    <tr><td>Desconto:<span> (Valor em R$)</span></td></tr>
+                    <tr><td><input id="money_desconto" name="desconto" type="text" size="15"/></td></tr>
+                    <tr><td>Quantidade de parcelas:</td></tr>
+                    <tr><td><input name="parcela" type="text" size="2" onkeypress="return somente_numero(this,1,event);"/></td></tr>
+                    <tr><td>Juros ao mês:<span> (exemplo 10%)</span></td></tr>
+                    <tr><td><input name="juros" type="text" size="2" onkeypress="return somente_numero(this,1,event);"/></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="tags_form" class="form" style="display: none">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><textarea id="ckeditor2" name="tags" rows="5" cols="75"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+            
+        <div id="imagem_form" class="form" style="display: none">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><input name="imagem" type="file"/> </td>
+                    </tr>
+                </tbody>
+            </table>
+             <div><input type="submit" value="Cadastrar" class="submit_form"/></div>
+        </div>
+            
+        </form>
+    </div>
+</div>

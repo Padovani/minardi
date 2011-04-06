@@ -1,0 +1,56 @@
+<div class="formulario">
+   <div class="menu_adm_rapido">
+       <div id="top">
+           <div id="left"></div>
+           <div id="right"></div>
+       </div>
+       <div id="center">
+           <div id="texto_controller"><strong>Opçoes rápidas</strong><br/><span>Categorias</span></div>
+            <ul>
+                <li><a href="/categorias/add" title="Cadastrar Categoria"><span id="icon-32-new"></span> Cadastrar Categoria </a></li>
+                <li><a href="/categorias/index" title="Listar Categoria"><span id="icon-32-archive"></span> Listar Categproas </a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3>Listar categorias</h3>
+    <div id="bread_crumb_count">Foram encontrada <?php echo $categorias['quantidade'] ?> categorias.</div>
+    <div style="width: 500px;">
+       <?php if(!empty($this->error)): ?>
+            <div id="error_message">
+                <?php echo $this->error; ?>;
+            </div>
+       <?php endif; ?>
+        <?php if(!empty($this->confirm)): ?>
+            <div id="confirm_message">
+                <?php echo $this->confirm; ?>;
+            </div>
+       <?php endif; ?>
+    </div>
+
+    <table id="result" border="0px" cellspacing="0px"  style="width: 100%">
+        <tbody>
+            <th>Nome</th>
+            <th>Descricao</th>
+            <th width="30px;">Status</th>
+            <th width="65px;">Ações</th>
+            <?php foreach($categorias['categorias'] as $categoria): ?>
+            <tr>
+                <td><?php echo $categoria['nome'] ?></td>
+                <td><?php echo $categoria['descricao'] ?></td>
+                <td><?php if($categoria['ativo'] == 1) $class = 'status_ativo'; else $class = 'status_desativado' ?>
+                    <a href="<?php echo "/categorias/ativar&id=".$categoria['id'].'&status='.$class; ?>" onclick="return confirmAction('Deseja modificar o status esta categoria?')";>
+                    <div id="status" class="<?php echo $class ?>"></div>
+                    </a>
+                </td>
+                <td>
+                    <a title="Editar" href="<?php echo '/categorias/edit&id='.$categoria['id'] ?>"><div class="action_edit"></div></a>
+                    <a href="<?php echo "/categorias/delete&id=".$categoria['id']; ?>" onclick="return confirmAction('Deseja excluir esta categoria?');">
+                    <div id="status" class="action_delete"></div>
+                    </a>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>

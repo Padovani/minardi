@@ -1,0 +1,22 @@
+<span><?php echo 'Foram encontrados '.$quantidade.' registros'?></span>
+<div id="paginacao">
+    <ul>
+        <li id="previous">Anterior</li>
+        <?php
+            if(isset($limit) && !empty($limit)){
+                $paginas = array();
+                $count = 1;
+                do{
+                    echo "<li><a href='".$url."&page=".$count."'>".$count."</a></li>";
+                    $quantidade  -= $limit;
+                    $count++;
+                }while($quantidade > $limit);
+
+                if($quantidade > 0){
+                   echo "<li><a href='".$url."&page=".$count."'>".$count++."</a></li>";
+                }
+            }
+        ?>
+        <li id="next">Próxima</li>
+    </ul>
+</div>

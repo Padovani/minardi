@@ -1,0 +1,67 @@
+<script type="text/javascript" src="/webroot/js/ckeditor/ckeditor.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+    CKEDITOR.replace( 'texto',
+        {
+            customConfig : '/webroot/js/ckeditor/config.js',
+            width: '500'
+        });
+});
+</script>
+<div class="formulario">
+   <div class="menu_adm_rapido">
+       <div id="top">
+           <div id="left"></div>
+           <div id="right"></div>
+       </div>
+       <div id="center">
+           <div id="texto_controller"><strong>Opçoes rápidas</strong><br/><span>Textos</span></div>
+            <ul>
+                <li><a href="/loja_textos/index" title="Editar Textos"><span id="icon-32-archive"></span> Listar Ofertas </a></li>
+            </ul>
+        </div>
+    </div>
+    <h3>Lista de Textos</h3>
+    <?php echo $this->flashMessage ?>
+    <div id="box1" style="width: 500px">
+        <form method="post" action="/loja_textos/edit">
+            <table border="0px" cellspacing="0px"  style="font-size: 13px; font-family: arial">
+                <tr>
+                    <td>Identificação :</td>
+                    <td>
+                        <input readonly="true" name="id" value="<?php echo $lojaTexto['id'] ?>"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Local do texto:</td>
+                    <td><input readonly="true" name="local" value="<?php echo $lojaTexto['local'] ?>" /></td>
+                </tr>
+
+                <tr>
+                    <td>Status:</td>
+                    <td>
+                        <select name="ativo">
+                            <option value="1" <?php if($lojaTexto['ativo'] == 1) echo 'selected' ?>>Ativo</option>
+                            <option value="0" <?php if($lojaTexto['ativo'] == 0) echo 'selected' ?>>Desativado</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong>Informe abaixo o texto exibido ao cliente:</strong></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <textarea name="texto" class="texto"><?php echo $lojaTexto['texto'] ?></textarea>
+                    </td>
+                </tr>
+                <tr><td><input type="submit" value="Atualizar"/></td></tr>
+            </table>
+        </form>
+    </div>
+    <div id="box2">
+        imagem
+    </div>
+</div>
+

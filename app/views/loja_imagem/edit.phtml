@@ -1,0 +1,12 @@
+<div style="float:left">
+     <fieldset style="border: 1px solid #CDCDCD; padding: 8px; padding-bottom:0px; margin: 8px 0; width:450px">
+		<legend><strong>Enviar nova imagem</strong></legend>
+                <form action="/loja_imagem/edit" method="post" enctype="multipart/form-data">
+                    <label>Selecione a imagem</label>
+                    <input type="file" name="imagem"/>
+                    <input type="hidden" name="id" value="<?php echo $image['id'] ?>"/>
+                    <button type="submit">Enviar</button>
+                </form>
+    	<p></p>
+    </fieldset>
+</div>

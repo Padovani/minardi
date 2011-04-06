@@ -1,0 +1,62 @@
+<div class="formulario">
+
+    <div class="menu_adm_rapido">
+       <div id="top">
+           <div id="left"></div>
+           <div id="right"></div>
+       </div>
+       <div id="center">
+           <div id="texto_controller"><strong>Opçoes rápidas</strong><br/><span>Usuários</span></div>
+            <ul>
+                <li><a href="/usuarios/add" title="Cadastrar Usuário"><span id="icon-32-new"></span> Cadastrar Usuários </a></li>
+                <li><a href="#" title="Listar Usuário"><span id="icon-32-archive"></span> Listar Usuários </a></li>
+            </ul>
+        </div>
+    </div>
+
+
+<h3>Usuários cadastrados </h3>
+    <?php if(!isset($usuarios) || empty($usuarios)): ?>
+    <h2>Nehum usuário cadastrado</h2>
+    <?php else:?>
+
+        <div style="width: 500px;">
+          <?php echo $this->flashMessage; ?>
+        </div>
+
+        <table  id="result" border="0px" cellspacing="0px">
+            <tbody>
+                <tr>
+                    <th width="150px">Usuario</th>
+                    <th width="65%">Nome Completo</th>
+                    <th width="100px">Grupo</th>
+                    <th width="30px">Status</th>
+                    <th width="60px">Opções</th>
+                </tr>
+                <?php 
+                $quantidade = $usuarios['total_found'];
+                unset($usuarios['total_found']);
+
+                ?>
+                <?php foreach($usuarios as $usuario):?>
+                    <tr>
+                        <td><?php echo $usuario['usuario'] ?></td>
+                        <td><?php echo $usuario['nome_completo'] ?></td>
+                        <td><?php echo $usuario['grupo'] ?></td>
+                        <td>
+                            <?php if($usuario['ativo'] == 1) $class = 'status_ativo'; else $class = 'status_desativado'?>
+                            <a title="Ativar/Desativar"  href="<?php echo '/usuarios/ativar&id='.$usuario['id'].'&status='.$class; ?>"><div class="<?php echo $class; ?>"  onclick="return confirmAction('Deseja Ativar/Desativar este usuário?');"></div></a>
+                        </td>
+                        <td>
+                            <a title="Editar" href="<?php echo '/usuarios/edit&id='.$usuario['id'] ?>"><div class="action_edit"></div></a>
+                            <a title="Deletar" href="<?php echo '/usuarios/delete&id='.$usuario['id'] ?>"><div class="action_delete" onclick="return confirmAction('Deseja excluir este usuário?');"></div></a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php endif; ?>
+
+    <?php echo $this->element('paginacao',array('quantidade'=>$quantidade,'limit'=>$limit,'url'=>'/usuarios/index'));  ?>
+
+</div>

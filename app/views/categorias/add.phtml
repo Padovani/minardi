@@ -1,0 +1,119 @@
+<script>
+   function validaCampo(){
+     var count = 0
+
+     jQuery("#msg_error").html("");
+     
+     jQuery("input").each(function(){
+       if(jQuery(this).val() == ''){
+          if(count <= 0){
+            jQuery("#msg_error").append("<p>Existem campos vazios, favor verificar.</p>");
+          }
+          count++;
+       }
+    });
+    
+    if(count > 0){
+        return false;
+    }
+    }
+</script>
+
+<div class="formulario">
+    <div class="menu_adm_rapido">
+       <div id="top">
+           <div id="left"></div>
+           <div id="right"></div>
+       </div>
+       <div id="center">
+           <div id="texto_controller"><strong>Opçoes rápidas</strong><br/><span>Categorias</span></div>
+            <ul>
+                <li><a href="/categorias/add" title="Cadastrar Categoria"><span id="icon-32-new"></span> Cadastrar Categoria </a></li>
+                <li><a href="/categorias/index" title="Listar Categoria"><span id="icon-32-archive"></span> Listar Categproas </a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <h3>Cadastro de categorias</h3>
+    <div id="box1">
+        <form name="form_cadastro_categoria" action="/categorias/add" method="post">
+         <table style="font-size: 13px; font-family: arial">
+            <tr>
+                <td>Categoria Pai:</td>
+                <td>
+                    <select id="parent_id" name="parent_id">
+                        <option  value="0"> - </option>
+                        <?php foreach($categorias_lista as $k => $categoria){
+                            echo '<option value=\''.$k.'\'>'.htmlspecialchars_decode($categoria).'</option>';
+                        }
+                        ?>
+                    </select>
+
+                </td>
+            </tr>
+            <tr>
+                <td>Nome da Categorias:</td>
+                <td><input id="nome" name="nome"/></td>
+            </tr>
+            <tr>
+                <td>Descrição:</td>
+                <td><input id="descricao" name="descricao"/></td>
+            </tr>
+             <tr>
+                <td>Ativo:</td>
+                <td>
+                    <select id="ativo" name="ativo">
+                        <option value="1">Ativado</option>
+                        <option value="0">Desativado</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input class="button_form" type="submit" value="Cadastrar" onclick="return validaCampo('Deseja excluir a categoria?');"/></td>
+            </tr>
+        </table>
+        </form>
+        <div id="msg_error">
+            
+        </div>
+    </div>
+    <div id="box2">
+        <p><strong style="color: red">Página de Cadastrado de categorias para a sua loja.</strong></p>
+           <p>Todas as categorias aqui insiridas, aparecerão na página de cadasto de produtos.<br/>
+              Categorias com status definido como <strong>Inativa</strong>, não serão exibidas na sua loja.
+           </p>
+           <?php echo $this->flashMessage ?>
+    </div>
+</div>
+
+<table id="result"  border="0px" cellspacing="0px"  style="width: 85%; margin-left: 136px">
+    <tbody>
+        <th>Nome</th>
+        <th>Descricao</th>
+        <th width="30px;">Status</th>
+        <th width="30px;">Ações</th>
+    </tbody>
+</table>
+
+<div style="overflow-y: auto; overflow-x:hidden;  height: 250px; width:90% ;clear: left; margin: 0 auto">
+    <table id="result" border="0px" cellspacing="0px"  style="width: 95%; margin-left: 75px">
+    <tbody>
+        <?php foreach($categorias as $categoria): ?>
+        <tr>
+            <td><?php echo $categoria['nome'] ?></td>
+            <td><?php echo $categoria['descricao'] ?></td>
+            <td><?php if($categoria['ativo'] == 1) $class = 'status_ativo'; else $class = 'status_desativado' ?>
+                <a href="<?php echo "/categorias/ativar&id=".$categoria['id'].'&status='.$class; ?>" onclick="return confirmAction('Deseja modificar o status esta categoria?')">
+                <div id="status" class="<?php echo $class ?>"></div>
+                </a>
+            </td>
+            <td>
+                <a href="<?php echo "/categorias/delete&id=".$categoria['id']; ?>" onclick="return confirmAction('Deseja excluir esta categoria?');" title="Excluir Categoria">
+                <div id="status" class="action_delete"></div>
+                </a>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+</div>

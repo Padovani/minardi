@@ -1,0 +1,110 @@
+<script>
+   function validaCampo(){
+     var count = 0
+
+     jQuery("#msg_error").html("");
+
+     jQuery("input").each(function(){
+       if(jQuery(this).val() == ''){
+          if(count <= 0){
+            jQuery("#msg_error").append("<p>Existem campos vazios, favor verificar.</p>");
+          }
+          count++;
+       }
+    });
+
+        if(count > 0){
+            return false;
+        }else{
+            img = '<img src=\'/\webroot/\img/\icons/\loading.gif\'>';
+            jQuery('#loading').append(img);
+            var data;
+            data = jQuery("#usuario_form").serialize();
+            jQuery.post("/usuarios/add", data,
+               function(result) {
+                 jQuery('#loading img').remove();
+                 jQuery('#loading').append(result);
+                 jQuery("input[type='text'],input[type='password']").each(function(){
+                     jQuery(this).attr('value','');
+                 })
+
+             });
+
+            return false;
+        }
+    }
+</script>
+
+
+<div class="formulario">
+
+    <div class="menu_adm_rapido">
+       <div id="top">
+           <div id="left"></div>
+           <div id="right"></div>
+       </div>
+       <div id="center">
+           <div id="texto_controller"><strong>Opçoes rápidas</strong><br/><span>Usuários</span></div>
+            <ul>
+                <li><a href="#" title="Cadastrar Usuário"><span id="icon-32-new"></span> Cadastrar Usuários </a></li>
+                <li><a href="/usuarios/index" title="Listar Usuário"><span id="icon-32-archive"></span> Listar Usuários </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Cadastro de Usuarios</h3>
+    <div id="box1">
+        <form id="usuario_form" name="form_cadastro_usuarios" action="/usuarios/add" method="post">
+         <table style="font-size: 13px; font-family: arial">
+            <tr>
+                <td>Grupo:</td>
+                <td>
+                    <select id="loja_grupo_id" name="loja_grupo_id">
+                        <?php foreach($grupo_lista as $k => $grupo){
+                            echo '<option value=\''.$grupo['id'].'\'>'.htmlspecialchars_decode($grupo['grupo']).'</option>';
+                        }
+                        ?>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Nome do usuário:</td>
+                <td><input id="usuario" type="text" name="usuario"/></td>
+            </tr>
+            <tr>
+                <td>Nome completo:</td>
+                <td><input id="nome_completo" type="text" name="nome_completo" size="58"/></td>
+            </tr>
+            <tr>
+                <td>Senha:</td>
+                <td><input id="password" name="senha" type="password"/></td>
+            </tr>
+             <tr>
+                <td>Ativo:</td>
+                <td>
+                    <select id="ativo" name="ativo">
+                        <option value="1">Ativado</option>
+                        <option value="0">Desativado</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input class="button_form" type="submit" value="Cadastrar" onclick="return validaCampo('Deseja excluir a categoria?');"/></td>
+            </tr>
+        </table>
+        </form>
+        <div id="msg_error">
+
+        </div>
+    </div>
+    <div id="box2">
+        <div id="msg_error"></div>
+        <p><strong>&nbsp;&nbsp;Cadastro de usuário</strong>, permite que você adicione vários usuários conforme a
+         necessidade do seu sistema. Cada usuário cadastrado pertencerá a um grupo de acesso, onde será
+         fornecido acesso conforme deliberação do administrador.
+        </p>
+
+        <div id="loading"></div>
+
+    </div>
+</div>

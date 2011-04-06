@@ -1,0 +1,53 @@
+<div class="formulario">
+    <div class="menu_adm_rapido">
+       <div id="top">
+           <div id="left"></div>
+           <div id="right"></div>
+       </div>
+       <div id="center">
+           <div id="texto_controller"><strong>Opçoes rápidas</strong><br/><span>Marcas</span></div>
+            <ul>
+                <li><a href="/marcas/add" title="Cadastrar Usuário"><span id="icon-32-new"></span> Cadastrar Marcas </a></li>
+                <li><a href="/marcas/index" title="Listar Usuário"><span id="icon-32-archive"></span> Listar Marcas </a></li>
+            </ul>
+        </div>
+    </div>
+
+    <h3>Editar Marcas</h3>
+    <div id="box1">
+        <form id="marcas_form" name="form_edit_marcas" enctype="multipart/form-data" action="/marcas/edit" method="post">
+         <table style="font-size: 13px; font-family: arial">
+            <tr>
+                <td>Nome</td>
+                <td>
+                    <input id="nome" type="text" name="nome" value="<?php echo $marca['nome'] ?>"/>
+                    <input id="id" type="hidden" name="id" value="<?php echo $marca['id'] ?>"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Site:</td>
+                <td><input id="site" type="text" name="site" size="65" value="<?php echo $marca['site'] ?>"/></td>
+            </tr>
+            <tr>
+                <td>Imagem</td>
+                <td><input id="imagem" name="imagem" type="file"/></td>
+            </tr>
+             <tr>
+                <td>Ativo:</td>
+                <td>
+                    <select id="ativo" name="ativo">
+                        <option value="1" <?php if($marca['ativo'] == 1) echo 'selected' ?>>Ativado</option>
+                        <option value="0" <?php if($marca['ativo'] == 0) echo 'selected' ?>>Desativado</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input class="button_form" type="submit" value="Atualizar" onclick="return validaCampo('Deseja excluir a categoria?');"/></td>
+            </tr>
+        </table>
+        </form>
+    </div>
+    <div id="box2">
+        <div id="loading"></div>
+    </div>
+</div>

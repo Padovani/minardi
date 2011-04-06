@@ -1,0 +1,80 @@
+<script>
+   function validaCampo(){
+     var count = 0
+
+     jQuery("#msg_error").html("");
+
+     jQuery("input").each(function(){
+       if(jQuery(this).val() == ''){
+          if(count <= 0){
+            jQuery("#msg_error").append("<p>Existem campos vazios, favor verificar.</p>");
+          }
+          count++;
+       }
+    });
+
+    if(count > 0){
+        return false;
+    }
+    }
+</script>
+
+<div class="formulario">
+
+   <div class="menu_adm_rapido">
+       <div id="top">
+           <div id="left"></div>
+           <div id="right"></div>
+       </div>
+       <div id="center">
+           <div id="texto_controller"><strong>Opçoes rápidas</strong><br/><span>Marcas</span></div>
+            <ul>
+                <li><a href="/marcas/add" title="Cadastrar Usuário"><span id="icon-32-new"></span> Cadastrar Marcas </a></li>
+                <li><a href="/marcas/index" title="Listar Marcas"><span id="icon-32-archive"></span> Listar Marcas </a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <h3>Cadastro de Marcas</h3>
+    <div id="box1">
+        <form name="form_cadastro_marcas" action="/marcas/add" method="post" enctype="multipart/form-data">
+         <table style="font-size: 13px; font-family: arial">
+            <tr>
+                <td>Nome:</td>
+                <td>
+                    <input name="nome" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>Site</td>
+                <td><input id="site" name="site"/></td>
+            </tr>
+            <tr>
+                <td>Imagem</td>
+                <td><input id="imagem" name="imagem" type="file"/></td>
+            </tr
+             <tr>
+                <td>Ativo:</td>
+                <td>
+                    <select id="ativo" name="ativo">
+                        <option value="1">Ativado</option>
+                        <option value="0">Desativado</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><input class="button_form" type="submit" value="Cadastrar" onclick="return validaCampo('Deseja excluir a categoria?');"/></td>
+            </tr>
+        </table>
+        </form>
+        <div id="msg_error"></div>
+    </div>
+    <div id="box2">
+        <?php echo $this->flashMessage; ?>
+        <p><strong style="color: red">Página de Cadastrado para marcas.</strong></p>
+           <p>Cadastre as Marcas a serem atreladas a seus produtos. Toda marca poderá ser
+               indicada para ser destaque da sua pagina inicial.
+           </p>
+    </div>
+</div>
