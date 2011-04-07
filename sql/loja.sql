@@ -428,7 +428,7 @@ CREATE TABLE IF NOT EXISTS `loja_usuarios` (
 --
 
 INSERT INTO `loja_usuarios` (`id`, `loja_grupo_id`, `usuario`, `nome_completo`, `senha`, `ativo`) VALUES
-(1, 3, 'renato', 'José Renato Beltrani', 'h3nr1qu3', 1),
+(1, 3, 'renato', 'José Renato Beltrani', '1234', 1),
 (2, 1, 'honjoya', 'Henrique Honjoya', '1234', 1),
 (3, 2, 'adilan', 'Adilan Chicarolli', '1234', 1),
 (5, 2, 'mazinha', 'Mariana Magni Bueno', '123', 1);
