@@ -1,1 +1,33 @@
-fff
+<script>
+
+jQuery(document).ready(function(){
+    
+    jQuery('.menu_animate li span').click(function(){
+        ul = jQuery(this).parent().children();
+        console.log(ul);
+        jQuery(ul[1]).slideUp('fast').toggle();
+    })
+})
+</script>
+
+<div id="menu_front">
+    <ul>
+        <li><strong>Categorias</strong>
+            <ul class="menu_animate">
+                <li><span>Roupas</span>
+                    <ul style="display: none">
+                        <li class="sub">Feminina</li>
+                        <li class="sub">Masculina</li>
+                    </ul>
+                </li>
+                
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div id="display">
+
+</div>
+<div id="display_options">
+</div>

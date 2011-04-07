@@ -1,0 +1,82 @@
+body{
+    margin: 0 0 0 0;
+}
+
+#menu_superior{
+    background-color: #3C5F98;
+    width: 100%;
+    height: 100px;
+    min-width: 1000px;
+}
+
+#menu_superior #menu_list{
+    float: right;
+    margin-right: 80px;
+}
+
+#menu_superior #menu_list li{
+    margin-top: 10px;
+    list-style: none;
+    color: white;
+    float: left;
+    margin-left: 30px;
+    height: 28px;
+    padding: 6px;
+}
+
+#menu_superior #menu_list li span{
+    color:#11B5F9
+}
+
+#menu_superior #menu_list .separator{
+    border-left: 2px solid white;
+}
+
+#menu_superior #phone{
+    float: right;
+    font-size: 20px;
+    color: white;
+    margin-top: 26px;
+    margin-right: 100px;
+    text-align: center;
+
+}
+
+#conteudo{
+    width:100%;
+    height: auto;
+    margin: 0 auto;
+    min-width: 1000px;
+}
+
+#menu_front{
+    width: 180px;
+    height: 200px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#menu_front ul li strong{
+    
+}
+
+#menu_front ul{
+    
+}
+
+#menu_front ul li{
+    list-style: none;
+}
+
+#menu_front ul li ul li{
+    list-style: none;
+    margin-left: -30px;
+    padding:3px;
+    margin-top: 3px;
+    background: #E7E5E5  url("http://shopping.tray.com.br/theme/4/img/bg_menu_sub3.png") no-repeat right;
+    width: 170px;
+}
+
+#menu_front .sub{
+    width: 155px;
+}

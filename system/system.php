@@ -84,9 +84,11 @@
             #Realiza a validação .
 
             require_once('acesscontrol.php');
+
             AcessControl::verificaAcesso($this->_controller,$this->_action);
-            
+
             $controller_path = CONTROLLERS . $this->_controller . '_controller.php';
+
             if( !file_exists( $controller_path ) )
                 die('Houve um erro. O controller nao existe.');
 
