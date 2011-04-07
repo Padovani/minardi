@@ -195,6 +195,7 @@
                                 $this->getFilha($k,$separador.$separador);
                 }
 
+                return $filhas;
         }
     }
 ?>
