@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿-- phpMyAdmin SQL Dump
 -- version 3.2.4
 -- http://www.phpmyadmin.net
@@ -517,3 +518,6 @@ ALTER TABLE `loja_usuarios`
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
+=======
+Apaguei todo sql ----  se precisar me contate
+>>>>>>> eb5a56d00d91de509641e0d06e7d6a1841444d78
