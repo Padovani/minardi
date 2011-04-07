@@ -1,1 +1,1 @@
-Mudança novamente ok.. usando netbeans
+Apaguei todo sql ----  se precisar me contate
