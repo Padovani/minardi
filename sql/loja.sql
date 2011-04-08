@@ -1,4 +1,3 @@
-Apaguei todo sql ----  se precisar me contate
+se precisar me contate
 
-Aqui vai dar conflito :)
-
+Teste para ver como funciona sistema de conflito
