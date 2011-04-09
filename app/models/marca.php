@@ -11,5 +11,10 @@
  */
 class Marca extends Model{
     public $_tabela = 'loja_marcas';
+
+   public function listar(){
+       $marcas = $this->read();
+       return $marcas;
+   }
 }
 ?>

@@ -32,5 +32,14 @@ class Categoria extends Model{
         }
         return array('categorias'=>$categorias,'quantidade'=>count($categorias));
    }
+
+   public function categoriaMenu(){
+        $categoriasPai = $this->read(null,'parent_id = 0');
+        foreach($categoriasPai as $k=>$v){
+            $categoriasPai[$k]['filhas'] =  $this->getFilha($v['id'],'');
+        }
+
+        return $categoriasPai;
+   }
 }
 ?>

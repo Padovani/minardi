@@ -1,0 +1,40 @@
+<?php
+    $categoria = new Categoria();
+    $lista_categoria = $categoria->categoriaMenu();
+
+?>
+
+<script style="text\javascript">
+	jQuery(document).ready(function(){
+            jQuery(".principal").hover(function(){
+		jQuery(this).children().eq(1).slideDown();
+		},
+            function(){
+            		jQuery(this).children().eq(1).hide();
+
+		})
+            })
+</script>
+
+<ul class="menu_top">
+    <?php foreach($lista_categoria as $k=>$categ): ?>
+    <li class="principal"><strong><?php echo $categ['nome'] ?></strong>
+        <ul class="sub_principal">
+            <li>
+                <ul>
+                    <?php foreach($categ['filhas'] as $id => $cate): ?>
+                    <li>
+                        <?php echo $cate ?>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
+                <div class="content">
+                        
+                 </div>
+            </li>
+        </ul>
+     <?php endforeach ;?>
+</li>
+</ul>
+<div>
+</div>

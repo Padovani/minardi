@@ -114,3 +114,33 @@ body{
     background-color: black;
     margin-top: 10px;
 }
+
+.menu_top { background: #F2F2F2; height:30px; margin:0px}
+.menu_top ul, .menu_top li {padding: 3px}
+.menu_top li {list-style:none;}
+.menu_top .principal {list-style:none; position:relative; width:145px; float:left}
+.menu_top strong {display:block; margin-top:3px; cursor:pointer;}
+.menu_top .principal .sub_principal {display:none; position:absolute; background-color:white; width:210px; height:170px; background: url("/webroot/img/icons/linear_separator.png")}
+.menu_top .principal .sub_principal img {float:right; margin-top:5px;}
+.menu_top .principal .sub_principal .content {-moz-border-radius:5px; webkit-border-radius:5px;}
+.menu_top .principal .sub_principal .content img{max-width: 100px; margin-top: 10px;}
+.menu_top li strong {color:#3C5F98}
+.bloco_img li {float: left}
+
+#footer{
+    width: 100%;
+    height: 130px;
+    background-color: #F8F8F8;
+    clear: both;
+}
+
+#footer #pagamento{
+    text-align: center;
+    margin-top: 10px;
+}
+
+#footer #direitos{
+    font-size: 12px;
+    text-align: center;
+    color: #B8A899;
+}
