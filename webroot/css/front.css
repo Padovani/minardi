@@ -1,13 +1,64 @@
 body{
     margin: 0 0 0 0;
+    font: 13px Arial,Helvetica,sans-serif;
 }
 
+.tit{
+    color:#004281;
+    font-size: 14px;
+}
 #menu_superior{
     background-color: #3C5F98;
     width: 100%;
-    height: 100px;
+    height: 140px;
     min-width: 1000px;
 }
+
+#spabusca{
+    width: 400px;
+    height: 30px;
+    background: url("/webroot/img/icons/bg_busca.jpg");
+    position: absolute;
+    margin-top: 95px;
+    margin-left: 34.5%;
+}
+
+#spabusca input{
+    width: 250px;
+    padding: 5px;
+    border: none;
+    margin-top: 2px;
+}
+
+#spabusca #btn_busca{
+    background-color: red;
+    width: 50px;
+    height: 100%;
+}
+
+#btn_search{
+    width: 31px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    margin-top: 0px;
+    top:0px;
+}
+
+#spabusca #btn_busca{
+    text-align: center;
+    background-color: #3C5F98;
+    height: 30px;
+    float: left;
+}
+
+#spabusca #btn_busca span{
+    display: table;
+    color: white;
+    font-weight: bold;
+    margin-top: 6px;
+}
+
 
 #menu_superior #menu_list{
     float: right;
@@ -95,13 +146,12 @@ body{
 }
 
 #display{
-    width: 1000px;
-    height: 400px;
+    width: 910px;
+    min-height: 400px;
     float: left;
 }
 
 #display #banner{
-    width: 1000px;
     margin: 0 auto;
     height: 130px;
     background-color: gray;
@@ -111,8 +161,19 @@ body{
 #display #list_offers{
     width: 100%;
     height: 25px;
-    background-color: black;
     margin-top: 10px;
+}
+
+#display #list_offers a{
+    text-decoration: none;
+}
+
+#display #list_offers #title_list{
+    width: 100%;
+    height: 20px;
+    margin: 0 auto;
+    border-bottom: 1px solid;
+    border-color: #004281;
 }
 
 .menu_top { background: #F2F2F2; height:30px; margin:0px}
@@ -136,7 +197,7 @@ body{
 
 #footer #pagamento{
     text-align: center;
-    margin-top: 10px;
+    padding-top: 10px;
 }
 
 #footer #direitos{
@@ -144,3 +205,45 @@ body{
     text-align: center;
     color: #B8A899;
 }
+
+
+.offer{
+    margin-top: 10px;
+    width: 170px;
+    height: 210px;
+    padding: 5px;
+    text-align: center;
+    color: #5071A9;
+    float: left;
+}
+
+.offer .divimg{
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.offer img{
+    max-width: 120px;
+    border: none;
+}
+
+.offer .titulo{
+    margin-top: 5px;
+    height: 30px;
+    overflow: hidden;
+}
+
+.offer .preco_avista{
+    margin-top: 7px;
+}
+
+.offer .frete{
+    margin-top: 4px;
+    color: red;
+}
+
+.offer .preco span{
+    color: red;
+}
+

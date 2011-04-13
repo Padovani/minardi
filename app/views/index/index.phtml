@@ -1,21 +1,10 @@
-<script>
-
-jQuery(document).ready(function(){
-    
-    jQuery('.menu_animate .father').click(function(){
-        ul = jQuery(this).next();
-        jQuery(ul[0]).toggle('fast');
-    })
-})
-</script>
-
 <div id="menu_front">
     <ul>
         <li><strong>Categorias</strong>
             <ul class="menu_animate">
             <?php foreach($categorias as $k=>$categoria): ?>
                 <li class="father"><span><?php echo $categoria['nome'] ?></span></li>
-                    <ul style="display: none; margin-left: -40px">
+                    <ul style="margin-left: -40px">
                     <?php foreach( $categoria['filhas'] as $key => $filha): ?>
                         <li class="sub"><span><?php echo $filha ?></span></li>
                     <?php endforeach; ?>
@@ -32,7 +21,10 @@ jQuery(document).ready(function(){
         
     </div>
     <div id="list_offers">
-
+        <div id="title_list">
+            <strong class="tit">Ofertas em destaque</strong>
+        </div>
+         <?php $this->element('lista_ofertas',array('ofertas'=>$ofertas)); ?>
     </div>
 </div>
 <div id="display_options">

@@ -114,7 +114,11 @@
         public function executeQuery( $sql ){
 
             $result = array();
-            $result =  mysql_query($sql);
+            try{
+            $result =  mysql_query($sql) or die('problema na query: ' . mysql_error());;
+            }catch(Exception $e){
+                echo $e;
+            }
 
             $this->id = $this->read('first',null,null,null,'id DESC');
             $this->reset();

@@ -1,0 +1,45 @@
+<?php if(!empty($ofertas)):?>
+
+    <?php
+        $ImagemHelper = new ImagemHelper();
+        foreach($ofertas as $k => $oferta):
+    ?>
+    <a href="/loja_ofertas/detalhe&id=<?php echo $oferta['id'] ?>">
+         <div class="offer">
+             <div class="divimg">
+                 <?php
+                    $caminho = "/webroot/img/loja_ofertas/{$oferta['id_imagem']}.{$oferta['imagem']}";
+                    echo $ImagemHelper->imprimeImagem($caminho,$oferta['titulo'],$oferta['titulo']);
+                 ?>
+             </div>
+             <div class="titulo">
+                 <strong><?php echo  $oferta['titulo'] ?></strong>
+             </div>
+             <?php if($oferta['preço'] != 0 ){?>
+                 <div class="preco_avista">
+                 Por: :
+                 <span><?php echo 'R$ ' . number_format($oferta['preço'], 2); // retorna R$100,000.50 ?></span>
+                 </div>
+                 <div class="preco">
+                 Preço :
+                 <span > <?php echo $oferta['parcela']?> x <?php echo 'R$ '.number_format(($oferta['preço']/$oferta['parcela']),2) ?> </span>
+                 </div>
+             <?php }else{?>
+                 <div class="preco_avista">
+                    <span>Sob consulta</span>
+                 </div>
+             <?php }?>
+             <?php if(!empty($oferta['frete'])): ?>
+                 <div class="frete">
+                    <span>FRETE GRÁTIS</span>
+                 </div>
+             <?php endif; ?>
+
+         </div>
+    </a>
+    <?php
+        endforeach;
+    ?>
+<?php else: ?>
+    <h2> Nenhuma oferta como destaque até o momento.</h2>
+<?php endif; ?>

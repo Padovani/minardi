@@ -20,6 +20,8 @@ class LojaOferta extends Model {
     private $loja_marca_id;
     private $preco;
     private $quantidade = 0;
+    private $frete = 0;
+    private $destaque = 0;
     private $parcela;
     private $juros;
     private $desconto;
@@ -92,9 +94,11 @@ class LojaOferta extends Model {
 
 
     public function gravar(){
-        $sql = "INSERT INTO $this->_tabela VALUES (null,'{$this->titulo}', '{$this->descricao}',
-        '{$this->descricao_longa}','{$this->tags}','{$this->loja_categoria_id}','{$this->loja_marca_id}','{$this->preco}',
-        '{$this->parcela}','{$this->juros}','{$this->desconto}','{$this->ativo}','{$this->created}','{$this->modified}')";
+        $sql = "INSERT INTO $this->_tabela (id, titulo, descricao,descricao_longa,tags,loja_categoria_id ,loja_marca_id ,preço, quantidade, frete,destaque_home,parcela,juros,desconto,ativo,created,modified)
+                VALUES (null,'{$this->titulo}', '{$this->descricao}',
+        '{$this->descricao_longa}','{$this->tags}', '{$this->loja_categoria_id}', '{$this->loja_marca_id}','{$this->preco}',
+        '{$this->quantidade}','{$this->frete}', '{$this->destaque}',
+        '{$this->parcela}','{$this->juros}', '{$this->desconto}','{$this->ativo}', '{$this->created}', '{$this->modified}')";
 
         return $this->executeQuery($sql);
     }

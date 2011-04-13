@@ -125,7 +125,7 @@ class Usuarios extends Controller {
 
     public function delete(){
         if(isset($this->data['get']['id']) && !empty($this->data['get']['id'])){
-            if($this->Usuario->delete('loja_usuarios.id = '.$this->data['get']['id'])){
+            if($this->Usuario->delete($this->data['get']['id'])){
                 $this->setConfirm('Usuario Exlcuido com sucesso.');
                 $this->redirect($this->referer);
             }else{

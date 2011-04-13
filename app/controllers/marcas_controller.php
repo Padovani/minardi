@@ -55,14 +55,17 @@ class Marcas extends Controller{
                 }else{
                     $this->setConfirm('Marca modificada com sucesso.');
                 }
+            }
 
-                $sql = "UPDATE loja_marcas SET nome = '{$this->data['post']['nome']}', imagem = '{$ImagemHelper->tipo}' , site = '{$this->data['post']['site']}', ativo = '{$this->data['post']['ativo']}' WHERE id =  {$this->data['post']['id']} ";
-                if(!$this->Marca->executeQuery($sql)){
-                    $this->setError('Falha ao concluir alteraçao');
-                    $this->redirect('/marcas/');
-                }
+            $imagem = '';
+            if(!empty($ImagemHelper->tipo)) $imagem =  ",imagem = '{$ImagemHelper->tipo}'";
+            $sql = "UPDATE loja_marcas SET nome = '{$this->data['post']['nome']}', site = '{$this->data['post']['site']}' $imagem WHERE id =  {$this->data['post']['id']} ";
+            if(!$this->Marca->executeQuery($sql)){
+                 $this->setError('Falha ao concluir alteraçao');
+                 $this->redirect('/marcas/');
             }else{
-                $this->setError('Tipo de imagem inválida');
+               $this->setError('Tipo de imagem inválida');
+               $this->redirect('/marcas/');
             }
             $this->redirect('/marcas/');
         }
