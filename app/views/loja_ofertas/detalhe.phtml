@@ -1,0 +1,15 @@
+<script type="text/javascript">
+           $(document).ready(function(){
+               $('.loja_imagem').jqzoom({
+                                    zoomType: 'reverse'
+                                });
+    });  
+</script>
+<?php
+if(!empty($loja_oferta)){
+    $Imagem = new ImagemHelper();
+    echo '<a href="/webroot/img/loja_ofertas/11g.jpeg" class="loja_imagem">'.($Imagem->imprimeImagem('/webroot/img/loja_ofertas/'.$loja_oferta[0]['id'].'.'.$loja_oferta[0]['imagem'],$loja_oferta[0]['titulo'], $loja_oferta[0]['titulo'])).'</a>';
+}else{
+    
+}
+?>

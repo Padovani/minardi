@@ -1,31 +1,11 @@
-<div id="menu_front">
-    <ul>
-        <li><strong>Categorias</strong>
-            <ul class="menu_animate">
-            <?php foreach($categorias as $k=>$categoria): ?>
-                <li class="father"><span><?php echo $categoria['nome'] ?></span></li>
-                    <ul style="margin-left: -40px">
-                    <?php foreach( $categoria['filhas'] as $key => $filha): ?>
-                        <li class="sub"><span><?php echo $filha ?></span></li>
-                    <?php endforeach; ?>
-                    </ul>
-                
-            <?php endforeach; ?>
-            </ul>
-        </li>
-    </ul>
+<div id="banner">
+</div>
+<div id="list_offers">
+   <div id="title_list">
+        <strong class="tit">Ofertas em destaque</strong>
+   </div>
+      <?php $this->element('lista_ofertas',array('ofertas'=>$ofertas)); ?>
 </div>
 
-<div id="display">
-    <div id="banner">
-        
-    </div>
-    <div id="list_offers">
-        <div id="title_list">
-            <strong class="tit">Ofertas em destaque</strong>
-        </div>
-         <?php $this->element('lista_ofertas',array('ofertas'=>$ofertas)); ?>
-    </div>
-</div>
 <div id="display_options">
 </div>

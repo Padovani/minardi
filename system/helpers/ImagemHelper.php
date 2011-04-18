@@ -60,10 +60,10 @@ class ImagemHelper {
 
     }
 
-    public function imprimeImagem($caminho,$title = 'imagem',$alt = 'imagem'){
+    public function imprimeImagem($caminho,$title = 'imagem',$alt = 'imagem',$class = null){
         
         if(file_exists(ltrim($caminho,'/')) && is_file(ltrim($caminho,'/'))){
-            return "<img src='".$caminho."' alt='".$alt."'  title='".$title."'/>";
+            return "<img class='".$class."' src='".$caminho."' alt='".$alt."'  title='".$title."'/>";
         }else{
             return "<img src='/webroot/img/icons/no_image.png'/>";
         }

@@ -1,9 +1,11 @@
 <html>
     <head>
         <meta http-equiv="X-UA-Compatible" content="IE=8" />
+        <link href="/webroot/css/jquery.jqzoom.css" rel="stylesheet" type="text/css" />
         <link href="/webroot/css/front.css" rel="stylesheet" type="text/css" />
         <link href="/webroot/css/jquery/jquery.css" rel="stylesheet" type="text/css" />
         <script type="text/javascript" src="/webroot/js/jquery.js"></script>
+        <script type="text/javascript" src="/webroot/js/jquery.jqzoom-core-pack.js"></script>
         <script type="text/javascript" src="/webroot/js/jquery-ui.js"></script>
         <script type="text/javascript" src="/webroot/js/adm.js"></script>
         <title>Loja Demo</title>
@@ -28,10 +30,37 @@
                 
         </div>
     </div>
-    <div><?php echo $this->element('menu_marcas');?></div>
+
+    <?php
+        $categoria = new Categoria();
+        $lista_categoria = $categoria->categoriaMenu();
+    ?>
+        
+    <div><?php echo $this->element('menu_marcas',array('lista_categoria'=>$lista_categoria));?></div>
 
     <div id="conteudo">
+        <div id="menu_front">
+            <ul>
+                <li><strong>Categorias</strong>
+                    <ul class="menu_animate">
+                    <?php foreach($lista_categoria as $k=>$categoria): ?>
+                        <li class="father">
+                            <a href="/categorias/listar/&id=<?php echo $categoria['id'] ?>"><span><?php echo $categoria['nome'] ?></span></a>
+                        </li>
+                            <ul style="margin-left: -40px">
+                            <?php foreach( $categoria['filhas'] as $key => $filha): ?>
+                                <li class="sub"><a href="/categorias/listar/&id=<?php echo $key ?>"><span><?php echo $filha ?></span></a></li>
+                            <?php endforeach; ?>
+                            </ul>
+
+                    <?php endforeach; ?>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="display">
            <?php  require_once($require_for_layout);?>
+        </div>
     </div>
 
     <div id="footer">

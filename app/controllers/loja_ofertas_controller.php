@@ -220,7 +220,19 @@ class loja_ofertas extends Controller {
          }else{
             return false;
          }
-         
+    }
+
+    public function detalhe(){
+        $this->layout = 'front_end';
+        $loja_oferta = array();
+
+        if(isset($this->data['get']['id'])){
+            $sql = 'SELECT * FROM loja_oferta LEFT JOIN(loja_oferta_imagens) ON(loja_oferta_imagens.loja_oferta_id = loja_oferta.id) WHERE loja_oferta.id = '.$this->data['get']['id'];
+            $loja_oferta = ($this->LojaOferta->executeQuery($sql));
+        }
+        
+        $this->set('loja_oferta',$loja_oferta);
+        $this->autoRender('loja_ofertas/detalhe');
     }
 }
 ?>

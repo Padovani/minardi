@@ -100,6 +100,11 @@ body{
     min-width: 1000px;
 }
 
+#menu_front a, .menu_top a{
+    text-decoration: none;
+    color: black;
+}
+
 #menu_front{
     width: 250px;
     height: 200px;
@@ -146,8 +151,8 @@ body{
 }
 
 #display{
-    width: 910px;
-    min-height: 400px;
+    width: 74%;
+    min-height: 600px;
     float: left;
 }
 
@@ -176,7 +181,7 @@ body{
     border-color: #004281;
 }
 
-.menu_top { background: #F2F2F2; height:30px; margin:0px}
+.menu_top { background: #F2F2F2; height:30px; margin:0px; min-width: 1000px;}
 .menu_top ul, .menu_top li {padding: 3px}
 .menu_top li {list-style:none;}
 .menu_top .principal {list-style:none; position:relative; width:145px; float:left}

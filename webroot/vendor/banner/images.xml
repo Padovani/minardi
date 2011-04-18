@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This is the full list of specific particularities which you can set for each image. Next to each property is the corresponding overall setting of the Banner.
+When you specify one of these properties as an XML attribute for each image, the corresponding overall setting of the Banner will be ignored.
+
+Particular Property				Overall Property
+_____________________________________________________________
+effect							imageEffects -> type
+zoompercent						imageEffects -> zoomPercent
+dur								imageEffects -> duration
+direction						imageEffects -> direction
+hzoompos						imageEffects -> hZoomPos
+vzoompos						imageEffects -> vZoomPos
+hpos							textOptions -> hPos
+vpos							textOptions -> vPos
+width							textOptions -> width
+height							textOptions -> height
+slide							textEffects -> slide
+appear							textEffects -> appear
+func							textEffects -> function
+type							textBackground -> type
+transition (a transition ID from the transitions list)
+duration (duration for each image but change the value of autoTiming to false in settings.xml file)
+-->
+
+<slideshow>
+	<photo image="images/01.jpg" url="http://www.flashxml.net" target="_blank" duration="4" effect="zoom" zoompercent="200" direction="out" hzoompos="left" vzoompos="right">
+	<![CDATA[<head>Download the new FlashXML Banner Rotator</head><body>it's FREE</body>]]></photo>
+	
+	<photo image="images/02.jpg" url="http://www.flashxml.net" target="_blank" duration="4" effect="zoom" zoompercent="200" direction="out" hzoompos="center" vzoompos="center">
+	<![CDATA[<head>You probably won't need another banner rotator</head><body>More than 70 customizable properties</body>]]></photo>
+	
+	<photo image="images/03.jpg" url="http://www.flashxml.net" target="_blank" duration="4" effect="kenburns" direction="right"> 
+	<![CDATA[<head>Customizable Zoom and Ken Burns image effects</head><body>and more than 100 image transitions</body>]]></photo>
+	
+	<photo image="images/04.jpg" url="http://www.flashxml.net" target="_blank" duration="4" effect="kenburns" direction="top">
+
+	<![CDATA[<head>Fully customizable control buttons</head><body>You can show / hide each control and specify each control's order</body>]]></photo>
+	
+	<photo image="images/05.jpg" url="http://www.flashxml.net" target="_blank" duration="4" effect="kenburns" direction="bottom">
+	<![CDATA[<head>The text is HTML formatted, with any possible <font color="#ff0000">color</font>, <b><i>style,</i></b> <font size="30">size</font> and <a href="http://www.flashxml.net" target="_blank">link</a></head><body>The text could be CSS formatted as well</body>]]></photo>
+		
+	<photo image="images/06.jpg" url="http://www.flashxml.net" target="_blank" duration="4" effect="zoom" zoompercent="200" direction="out" hzoompos="right" vzoompos="left">
+	<![CDATA[<head>Click <a href="http://www.flashxml.net" target="_blank">here</a> to read instructions on how to install this Banner Rotator on your website for FREE</head>]]></photo>
+</slideshow>
