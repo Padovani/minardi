@@ -5,11 +5,38 @@
                                 });
     });  
 </script>
+<div id="oferta_detalhe">
 <?php
 if(!empty($loja_oferta)){
+?>
+    <div id="titulo"><?php echo $loja_oferta[0]['titulo']; ?></div>
+<?php
     $Imagem = new ImagemHelper();
     echo '<a href="/webroot/img/loja_ofertas/11g.jpeg" class="loja_imagem">'.($Imagem->imprimeImagem('/webroot/img/loja_ofertas/'.$loja_oferta[0]['id'].'.'.$loja_oferta[0]['imagem'],$loja_oferta[0]['titulo'], $loja_oferta[0]['titulo'])).'</a>';
+    ?>
+    <div  id="descricao_curta">
+        <?php echo $loja_oferta[0]['descricao']; ?>
+    </div>
+   <?php if(isset($loja_oferta[0]['descricao_longa']) && !empty ($loja_oferta[0]['descricao_longa'])):?>
+    <div id="descricao_longa">
+         <span>Descrição longa</span>
+        <?php echo $loja_oferta[0]['descricao_longa']; ?>
+    </div>
+    <?php endif ?>
+    <?php if(isset( $loja_oferta[0]['tags']) && !empty(  $loja_oferta[0]['tags'])): ?>
+     <div id="tags_url">
+         <span>Tags</span>
+         <div id="tags">
+            <?php echo $loja_oferta[0]['tags']; ?>
+         </div>
+     </div>
+    <?php endif ?>
+    <div id="buttons">
+        <img src="/webroot/img/icons/comprar.gif" />
+    </div>
+<?php
 }else{
-    
+    echo '<h2>Oferta não disponível</h2>';
 }
 ?>
+</div>

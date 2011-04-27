@@ -78,7 +78,7 @@
             $q = mysql_query(" SELECT {$fields} FROM `{$this->_tabela}` {$union} {$where} {$orderby} {$limit} ");
             
             $paginate = $this->mysqlToArray($q);
-            $paginate['total_found'] = $this->count();
+            $paginate['total_found'] = $this->count($where);
 
             return $paginate;
 

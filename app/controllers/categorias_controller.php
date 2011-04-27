@@ -11,11 +11,17 @@
  */
 class categorias extends controller {
     private $categoria = null;
+    private $LojaOferta = null;
+    private $limit = 10;
 
     public function  __construct() {
         if($this->categoria === null){
             $this->categoria = new Categoria();
             parent::__construct();
+        }
+
+        if($this->LojaOferta === null){
+            $this->LojaOferta = new LojaOferta();
         }
     }
 
@@ -99,7 +105,6 @@ class categorias extends controller {
 
          $sql = "UPDATE loja_categorias SET parent_id = '{$parent_id}',nome = '{$nome}', descricao = '{$descricao}', ativo = '{$ativo}' where id = {$id}";
 
-         
          if($this->categoria->executeQuery($sql)){
              $this->setConfirm('Categoria Alterada com sucesso.');
          }else{
@@ -111,16 +116,29 @@ class categorias extends controller {
        if(!empty($categoria)){
            $this->set('categoria',$categoria);
            $categorias_lista  = $this->categoria->getCategoriaTreeList();
-
            $categorias_lista[$categoria['parent_id']] = array($categorias_lista[$categoria['parent_id']],'selected');
-
            $this->set('categorias_lista',$categorias_lista);
        }else{
             $this->setError('Categoria não encontrada');
             $this->redirect($this->referer);
-       }
-       
+       }       
        $this->autoRender('/categorias/edit');
     }
+
+    public function listar(){
+        
+        if(!isset($this->data['get']['page'])){
+            $page = 1;
+        }else{
+            $page = $this->data['get']['page'];
+        }
+        $ofertas = $this->LojaOferta->paginate('*','loja_oferta.loja_categoria_id = '.$this->data['get']['id'],null,$this->limit,null,$page);
+        $this->set('ofertas',$ofertas);
+        $this->set('limit',$this->limit);
+        
+        $this->layout = 'front_end';
+        $this->autoRender('/categorias/listar');
+    }
+
  }
 ?>
