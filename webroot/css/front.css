@@ -302,3 +302,64 @@ body{
     font-size: 20px;
     color: #E7E5E5;
 }
+
+.lista_oferta .oferta_imagem{
+    float: left;
+}
+
+.lista_oferta .oferta_imagem img{
+    width: 120px;
+    height: 110px;
+    clear: both;
+}
+
+.lista_oferta .box_oferta{
+    width: 100%;
+    border: 1px solid #F2F2F2;
+    margin-top: 5px;
+    clear: both;
+    height: 111px;
+}
+
+.lista_oferta .box_oferta .descricao{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.lista_oferta .box_oferta .valores{
+    font: 15px;
+    margin-top: 10px;
+}
+
+.lista_oferta .box_oferta .valores .preco{
+    display: table;
+}
+
+.lista_oferta .box_oferta .valores .parcela{
+    display: table;
+    font-weight: bold;
+}
+
+.lista_oferta .box_oferta .buttons{
+    float: right;
+    margin-right: 30px;
+    vertical-align: sub;
+}
+
+.ver_mais{
+    background-image: url("/webroot/img/icons/datalhes_comprar_icon.gif");
+    width: 76px;
+    height: 20px;
+    display: block;
+}
+.comprar{
+    background-image: url("/webroot/img/icons/datalhes_comprar_icon.gif");
+    width: 76px;
+    height: 20px;
+    background-position: 0 23;
+    display: block;
+}
+
+#info_carrinho{
+    display: block;
+}

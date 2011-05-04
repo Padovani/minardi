@@ -1,5 +1,5 @@
 <?php
-class Administracao extends controller{
+class Administracao extends Controller{
 
     public function index(){
         $this->set('produtos_minimo',1);

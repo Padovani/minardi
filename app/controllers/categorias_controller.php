@@ -132,7 +132,12 @@ class categorias extends controller {
         }else{
             $page = $this->data['get']['page'];
         }
-        $ofertas = $this->LojaOferta->paginate('*','loja_oferta.loja_categoria_id = '.$this->data['get']['id'],null,$this->limit,null,$page);
+
+        $conditions = 'loja_oferta.loja_categoria_id = '.$this->data['get']['id'];
+        $fields = 'loja_oferta.* , loja_oferta_imagens.id as imagem_id , loja_oferta_imagens.imagem';
+        $union = 'LEFT JOIN loja_oferta_imagens ON (Loja_oferta_imagens.loja_oferta_id = loja_oferta.id)';
+
+        $ofertas = $this->LojaOferta->paginate($fields,$conditions,$union,$this->limit,null,$page);
         $this->set('ofertas',$ofertas);
         $this->set('limit',$this->limit);
         

@@ -9,6 +9,19 @@
         <script type="text/javascript" src="/webroot/js/jquery-ui.js"></script>
         <script type="text/javascript" src="/webroot/js/adm.js"></script>
         <title>Loja Demo</title>
+
+        <script type="text/javascript">
+        function registra_compra(id){
+            carrinho = jQuery("#info_carrinho b");
+            quantidade = 0;
+            var requisicao =  jQuery.getJSON("/carrinhos/cadastrar&oferta="+id,null,function(resposta){
+                 carrinho.text(resposta);
+                 alert("Quantidade de iténs em seu carrinho: "+ resposta);
+             })
+        }
+        </script>
+
+
     </head>
     <body>
     <div id="menu_superior">
@@ -20,7 +33,9 @@
             <ul id="menu_list">
             <li>Bem vindo, faça seu <span>login</span> ou <span> cadastre-se </span></li>
             <li class="separator">Central de atendimento</li>
-            <li class="separator">Meu Carrinho</li>
+            <li class="separator">Meu Carrinho <a href="/carrinhos/ver">(ver)</a>
+                <span id="info_carrinho"><b><?php if(isset($_SESSION['carrinho'])) echo count($_SESSION['carrinho']); else echo 0 ?></b> Itens</span>
+            </li>
             </ul>
             
         </div>
@@ -64,7 +79,6 @@
     </div>
 
     <div id="footer">
-
         <div id="pagamento">
             <img src="/webroot/img/icons/pagamento.gif"/>
         </div>
@@ -72,8 +86,6 @@
             <p>Copyright © 2011 - 2011  TODOS OS DIREITOS RESERVADOS.</p>
             <p>José Henrique Honjoya | José Renato Beltrani</p>
         </div>
-
     </div>
-        
     </body>
 </html>

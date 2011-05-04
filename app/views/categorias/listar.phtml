@@ -1,1 +1,35 @@
-<?php debug($ofertas); ?>
+<?php unset($ofertas['total_found']) ?>
+<?php if(!empty($ofertas)): ?>
+    <div class="lista_oferta">
+        <?php foreach($ofertas as $k => $oferta): ?>
+        <div class="box_oferta">
+        <div class="oferta_imagem">
+            <?php
+                $imagemHelper = new ImagemHelper();
+                echo $imagemHelper->imprimeImagem('/webroot/img/loja_ofertas/'.$oferta['imagem_id'].'.'.$oferta['imagem'], $oferta['titulo'], $oferta['titulo']);
+            ?>
+        </div>
+        <div class="descricao">
+            <?php echo $oferta['descricao']?>
+        </div>
+        <div class="valores">
+            <?php if(!empty($oferta['preço']) && $oferta['preço'] != 0): ?>
+            <span class="preco">A vista: <?php echo $oferta['preço'] ?></span>
+            <span class="parcela"><?php echo $oferta['parcela'].' x '.number_format(($oferta['preço'] / $oferta['parcela']),2) ?></span>
+            <?php else:
+                echo "<span id='preco'>Sob consulta </span>";
+             endif;
+            ?>
+        </div>
+            <div class="buttons">
+                <a href="/loja_ofertas/detalhe&id=<?php echo $oferta['id']  ?>" class="ver_mais" title="Ver detalhes" ></a>
+                <a href="#" class="comprar" onclick="registra_compra(<?php echo $oferta['id']?>)"></a>
+            </div>
+        </div>
+        <?php endforeach; ?>
+      <?php else: ?>
+        <center>
+            <h2>Nenhuma oferta localizada</h2>
+        </center>
+      <?php endif ?>
+</div>

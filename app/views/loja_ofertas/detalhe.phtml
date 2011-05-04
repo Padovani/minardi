@@ -31,8 +31,8 @@ if(!empty($loja_oferta)){
          </div>
      </div>
     <?php endif ?>
-    <div id="buttons">
-        <img src="/webroot/img/icons/comprar.gif" />
+    <div id="buttons" style="float: left; position: relative">
+        <a href="#" class="comprar" onclick="registra_compra(<?php echo $loja_oferta[0]?>)"></a>
     </div>
 <?php
 }else{
