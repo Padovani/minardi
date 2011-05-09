@@ -1,0 +1,29 @@
+<?php if(isset($carrinho)): ?>
+    <table class="carrinho_exibicao">
+        <tfoot>
+            <caption>Meu carrinho</caption>
+        </tfoot>
+        <thead>
+            <th>Imagem</th>
+            <th>Detalhe</th>
+            <th>Quantidade</th>
+            <th>Preço Unitário</th>
+            <th></th>
+        </thead>
+        <tbody>
+            <?php foreach($carrinho as $k=>$oferta): ?>
+            <?php $imagemHelper = new ImagemHelper(); ?>
+            <tr>
+                <td><?php echo $imagemHelper->imprimeImagem("/webroot/img/loja_ofertas/".$oferta['id_imagem'].".".$oferta['imagem'],$oferta['titulo'],$oferta['titulo'],'img_oferta')?></td>
+                <td><?php echo $oferta['titulo'] ?></td>
+                <td><?php echo $oferta['total'] ?></td>
+                <td><?php echo $oferta['preço'] ?></td>
+                <td><a href="/carrinhos/cancelar&id=<?php echo $oferta['id'] ?>">Remover</a></td>
+            </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+<?php else: ?>
+<h2>Seu carrinho esta vázio.</h2>
+<span style="color:red">Não perca tempo , realize suas compras agora.</span>
+<?php endif; ?>

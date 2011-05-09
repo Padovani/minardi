@@ -9,19 +9,6 @@
         <script type="text/javascript" src="/webroot/js/jquery-ui.js"></script>
         <script type="text/javascript" src="/webroot/js/adm.js"></script>
         <title>Loja Demo</title>
-
-        <script type="text/javascript">
-        function registra_compra(id){
-            carrinho = jQuery("#info_carrinho b");
-            quantidade = 0;
-            var requisicao =  jQuery.getJSON("/carrinhos/cadastrar&oferta="+id,null,function(resposta){
-                 carrinho.text(resposta);
-                 alert("Quantidade de iténs em seu carrinho: "+ resposta);
-             })
-        }
-        </script>
-
-
     </head>
     <body>
     <div id="menu_superior">

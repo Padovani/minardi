@@ -32,7 +32,7 @@ if(!empty($loja_oferta)){
      </div>
     <?php endif ?>
     <div id="buttons" style="float: left; position: relative">
-        <a href="#" class="comprar" onclick="registra_compra(<?php echo $loja_oferta[0]?>)"></a>
+        <a href="/carrinhos/incluir&id=<?php echo $loja_oferta[0]['loja_oferta_id']?>" class="comprar"></a>
     </div>
 <?php
 }else{

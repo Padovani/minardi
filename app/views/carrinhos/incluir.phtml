@@ -1,0 +1,27 @@
+<div class="carrinho">
+       <?php if(isset($oferta) && $oferta != null): ?>
+       <div id="imagem">
+            <?php
+            $imagemHelper = new ImagemHelper();
+            echo $imagemHelper->imprimeImagem('/webroot/img/loja_ofertas/'.$oferta[0]['imagem_id'].'.'.$oferta[0]['imagem'], $oferta[0]['titulo'], $oferta[0]['titulo']);
+            ?>
+       </div>
+        <div id="informacao">
+            <form action="/carrinhos/comprar" method="POST">
+            <ul>
+                <li><strong>Nome: </strong><?php echo $oferta[0]['descricao'] ?></li>
+                <li><strong>Estoque: </strong><?php echo $oferta[0]['quantidade'] ?></li>
+                <li><strong>Valor unitário:</strong> R$ <?php echo $oferta[0]['preço'] ?></li>
+                <li><strong>Comprar: </strong> <input name="quantidade" type="text" value="1" size="3"/></li>
+            </ul>
+            <?php if($oferta[0]['quantidade'] != 0){ ?>
+                <a href="/carrinhos/comprar&id=<?php echo $oferta[0]['id'] ?>&acao=adicionar"><div id="realizar">Realizar Compra</div></a>
+            <?php }else{ ?>
+                <div>Produto não disponível</div>
+            <?php } ?>
+            </form>
+         </div>
+            
+       <?php else:?>
+       <?php endif;?>
+</div>

@@ -3,6 +3,11 @@ body{
     font: 13px Arial,Helvetica,sans-serif;
 }
 
+a:link, a:visited{
+    text-decoration: none;
+    color: white;
+}
+
 .tit{
     color:#004281;
     font-size: 14px;
@@ -107,7 +112,6 @@ body{
 
 #menu_front{
     width: 250px;
-    height: 200px;
     margin-top: 10px;
     margin-left: 10px;
     float: left;
@@ -152,7 +156,6 @@ body{
 
 #display{
     width: 74%;
-    min-height: 600px;
     float: left;
 }
 
@@ -311,6 +314,7 @@ body{
     width: 120px;
     height: 110px;
     clear: both;
+    margin: 3px 3px 3px 3px;
 }
 
 .lista_oferta .box_oferta{
@@ -318,12 +322,13 @@ body{
     border: 1px solid #F2F2F2;
     margin-top: 5px;
     clear: both;
-    height: 111px;
+    height: 120px;
 }
 
 .lista_oferta .box_oferta .descricao{
     font-size: 16px;
     font-weight: bold;
+    margin-top: 10px;
 }
 
 .lista_oferta .box_oferta .valores{
@@ -356,10 +361,66 @@ body{
     background-image: url("/webroot/img/icons/datalhes_comprar_icon.gif");
     width: 76px;
     height: 20px;
-    background-position: 0 23;
+    background-position: 0 23px;
     display: block;
 }
 
 #info_carrinho{
     display: block;
+}
+
+.carrinho{
+    width: 900px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.carrinho #imagem {
+    float: left;
+    width: 200px;
+}
+
+.carrinho #imagem img{
+    position: relative;
+}
+
+.carrinho #informacao {
+    width: 500px;
+}
+.carrinho ul{
+    list-style: none;
+    margin-top: 5px;
+}
+
+.carrinho ul li{
+    padding: 3px;
+}
+
+#realizar{
+    width: 150px;
+    height: 20px;
+    background-color: #3C5F98;
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.carrinho_exibicao{
+    width: 800px;
+}
+.carrinho_exibicao caption{
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 40px;
+    background-color: #3C5F98;
+    color: white;
+}
+
+.carrinho_exibicao a {
+    color: red;
+}
+.carrinho_exibicao img{
+    max-width: 60px;
 }

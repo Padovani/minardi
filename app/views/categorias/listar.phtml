@@ -23,7 +23,7 @@
         </div>
             <div class="buttons">
                 <a href="/loja_ofertas/detalhe&id=<?php echo $oferta['id']  ?>" class="ver_mais" title="Ver detalhes" ></a>
-                <a href="#" class="comprar" onclick="registra_compra(<?php echo $oferta['id']?>)"></a>
+                <a href="/carrinhos/incluir&id=<?php echo $oferta['id']  ?>" class="comprar"></a>
             </div>
         </div>
         <?php endforeach; ?>
