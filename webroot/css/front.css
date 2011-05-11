@@ -98,6 +98,13 @@ a:link, a:visited{
 
 }
 
+#menu_superior #logo{
+   
+    color: white;
+    margin-right: 5px;
+
+}
+
 #conteudo{
     width:100%;
     height: auto;
